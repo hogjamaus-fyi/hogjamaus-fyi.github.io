@@ -566,6 +566,46 @@
     return getLanguageCookie();
   }
 
+  function normalizeLanguageCode(value) {
+    if (!value) {
+      return null;
+    }
+
+    const normalized = String(value)
+      .trim()
+      .toLowerCase()
+      .replace(/_/g, "-")
+      .split("-")[0];
+
+    return SUPPORTED_LANGS.includes(normalized) ? normalized : null;
+  }
+
+  function readLanguageFromQuery() {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const queryValue = params.get("lang");
+      return normalizeLanguageCode(queryValue);
+    } catch (error) {
+      return null;
+    }
+  }
+
+  function writeLanguageToQuery(lang) {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const current = params.get("lang");
+      if (current === lang) {
+        return;
+      }
+      params.set("lang", lang);
+      const search = params.toString();
+      const nextUrl = `${window.location.pathname}${search ? `?${search}` : ""}${window.location.hash}`;
+      window.history.replaceState({}, "", nextUrl);
+    } catch (error) {
+      // Ignore URL mutation failures.
+    }
+  }
+
   function preserveWhitespace(source, replacement) {
     const leading = source.match(/^\s*/);
     const trailing = source.match(/\s*$/);
@@ -626,15 +666,15 @@
     const wrapper = document.createElement("div");
     wrapper.className = "lang-control";
 
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "lang-gear";
-    button.setAttribute("aria-label", "Change language");
-    button.textContent = "⚙";
+    const label = document.createElement("label");
+    label.className = "lang-label";
+    label.textContent = "Language";
 
     const select = document.createElement("select");
     select.className = "lang-select";
     select.setAttribute("aria-label", "Select language");
+    select.id = "language-select";
+    label.setAttribute("for", "language-select");
 
     SUPPORTED_LANGS.forEach((code) => {
       const option = document.createElement("option");
@@ -643,20 +683,7 @@
       select.appendChild(option);
     });
 
-    button.addEventListener("click", function () {
-      wrapper.classList.toggle("open");
-      if (wrapper.classList.contains("open")) {
-        select.focus();
-      }
-    });
-
-    document.addEventListener("click", function (event) {
-      if (!wrapper.contains(event.target)) {
-        wrapper.classList.remove("open");
-      }
-    });
-
-    wrapper.appendChild(button);
+    wrapper.appendChild(label);
     wrapper.appendChild(select);
 
     const topActions = topbarInner.querySelector(".top-actions");
@@ -666,7 +693,7 @@
       topbarInner.appendChild(wrapper);
     }
 
-    return { wrapper, select, button };
+    return { wrapper, select };
   }
 
   function init() {
@@ -686,7 +713,7 @@
     }
 
     function applyLanguage(lang) {
-      const active = SUPPORTED_LANGS.includes(lang) ? lang : "en";
+      const active = normalizeLanguageCode(lang) || "en";
       const dir = RTL_LANGS.has(active) ? "rtl" : "ltr";
       document.documentElement.lang = active;
       document.documentElement.dir = dir;
@@ -702,14 +729,18 @@
 
       control.select.value = active;
       saveLanguage(active);
+      writeLanguageToQuery(active);
     }
 
     control.select.addEventListener("change", function (event) {
       applyLanguage(event.target.value);
-      control.wrapper.classList.remove("open");
     });
 
-    const initialLanguage = readSavedLanguage() || "en";
+    const initialLanguage =
+      readLanguageFromQuery() ||
+      normalizeLanguageCode(readSavedLanguage()) ||
+      normalizeLanguageCode(document.documentElement.lang) ||
+      "en";
     applyLanguage(initialLanguage);
   }
 
