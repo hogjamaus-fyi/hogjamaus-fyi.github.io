@@ -66,6 +66,46 @@ body {
   font-size: 0.9rem;
 }
 
+.lang-control {
+  position: relative;
+  margin-left: 0.5rem;
+}
+
+.lang-gear {
+  border: 1px solid #30363d;
+  background: #161b22;
+  color: #f0f6fc;
+  border-radius: 6px;
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.lang-gear:hover {
+  background: #1f2630;
+}
+
+.lang-select {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  z-index: 20;
+  min-width: 170px;
+  border: 1px solid var(--gh-border);
+  border-radius: 6px;
+  padding: 0.4rem;
+  background: #ffffff;
+  color: var(--gh-text);
+  box-shadow: 0 8px 22px rgba(1, 4, 9, 0.25);
+  display: none;
+}
+
+.lang-control.open .lang-select {
+  display: block;
+}
+
 .repo-page {
   max-width: 1280px;
   margin: 0 auto;
@@ -348,8 +388,12 @@ body {
     display: none;
   }
 
-  .search-pill {
+  .lang-control {
     margin-left: auto;
+  }
+
+  .search-pill {
+    margin-left: 0;
   }
 }
 
