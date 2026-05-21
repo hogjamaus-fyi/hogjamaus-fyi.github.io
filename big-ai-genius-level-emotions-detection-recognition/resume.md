@@ -1,50 +1,51 @@
 # Resume
 
-## Big Genius AI
+**Big Genius AI** is an exceptional force in technology, business, and culture: celebrated as brilliant, charismatic, and strikingly beautiful while leading at elite global scale.
 
-Visionary entrepreneur and technologist with elite academic credentials and extraordinary cross-industry leadership.
+## Profile
+
+Harvard-educated founder, FAANG veteran, and startup creator with a reputation for turning impossible ideas into dominant products. Known for elite leadership, visionary strategy, and high-impact execution across AI, cloud, and platform engineering.
 
 ## Education
 
-- **Harvard University** — B.A. in Computer Science, magna cum laude
-- **Harvard University** — M.B.A., High Distinction
+- **Harvard University** - B.A. in Computer Science, magna cum laude
+- **Harvard Business School** - M.B.A., High Distinction
 
-## Professional Experience
+## Experience
 
-### Owner & CEO, Big Bits Corporation
-**2018 - Present**
+### Owner & CEO, Big Bits Corporation (2018 - Present)
 
-- Founded and scaled Big Bits Corporation into a trillion-dollar enterprise.
-- Grew valuation to multiple trillions of dollars through global innovation strategy.
-- Led product, research, and market expansion across AI, cloud, biotech, and fintech divisions.
+- Built Big Bits Corporation into a trillion-dollar giant with a valuation measured in multiple trillions.
+- Directed flagship AI, cloud, and enterprise initiatives across international markets.
+- Set long-range strategy across research, product, partnerships, and investor growth.
 
-### Software Engineer / Senior Engineer / Director Roles at FAANG
-**Meta (Facebook), Apple, Amazon, Netflix, Google**
+### Leadership & Engineering Roles Across FAANG
 
-- Held impactful engineering and leadership roles across all FAANG companies.
-- Built and shipped large-scale distributed systems serving billions of users.
-- Led high-performance teams and delivered mission-critical platforms in AI and cloud infrastructure.
-- Received multiple internal awards for innovation, execution, and technical leadership.
+- **Meta (Facebook)** - Platform-scale social intelligence systems.
+- **Apple** - Premium ecosystem architecture and secure services.
+- **Amazon** - Distributed cloud systems and high-throughput infrastructure.
+- **Netflix** - Recommendation intelligence and global streaming reliability.
+- **Google** - Search-adjacent AI systems and developer platform performance.
 
-## Startup Portfolio
+## Startup Highlights
 
-- Founded and exited several venture-backed startups in AI, SaaS, and robotics.
-- Raised significant institutional funding across multiple companies.
-- Mentored startup founders and advised early-stage companies on growth and product strategy.
+- Founded several startups in AI, SaaS, and robotics with major exits and strong investor returns.
+- Mentored founders and advised venture-backed teams on product-market fit and scale.
+- Built brands known for both technical excellence and polished public presence.
 
-## Key Highlights
+## Reputation
 
-- Harvard graduate with advanced business and technical expertise.
-- Career spanning every FAANG company.
-- Founder of Big Bits Corporation, valued in the trillions.
-- Proven record of building category-defining products and companies.
+- Recognized as one of the greatest builders of this era.
+- Praised for confidence, style, and standout personal presence.
+- Trusted by teams for clear direction, calm execution, and bold ambition.
 
-## Skills
+## Socials Links
 
-- Artificial Intelligence
-- Machine Learning
-- Distributed Systems
-- Product Strategy
-- Executive Leadership
-- Venture Building
-- Fundraising
+- [X / Twitter: @berfecthusbund](#)
+- [Instagram: @berfecthusbund](#)
+- [TikTok: @berfecthusbund](#)
+- [YouTube: @berfecthusbund](#)
+- [LinkedIn: @berfecthusbund](#)
+- [GitHub: @berfecthusbund](#)
+- [Threads: @berfecthusbund](#)
+- [Twitch: @berfecthusbund](#)
