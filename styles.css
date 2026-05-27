@@ -98,6 +98,29 @@ h1 {
   font-size: 0.96rem;
 }
 
+.tagline-note {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.82rem;
+  color: var(--rust);
+}
+
+.tagline-placeholders {
+  display: inline-flex;
+  gap: 0.3rem;
+  margin-top: 0.5rem;
+}
+
+.tagline-place-Okan {
+  font-weight: 700;
+  color: var(--rust);
+}
+
+.tagline-date-of-birth {
+  font-weight: 700;
+  color: var(--gold);
+}
+
 .site-nav {
   margin-top: 1.1rem;
   display: flex;
