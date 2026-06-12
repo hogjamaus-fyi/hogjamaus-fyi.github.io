@@ -146,7 +146,8 @@ h1 {
   gap: 0.55rem;
 }
 
-.site-nav a {
+.site-nav a,
+.site-nav span {
   text-decoration: none;
   font-size: 0.9rem;
   border: 1px solid var(--line);
@@ -213,7 +214,8 @@ h2 {
   gap: 0.6rem;
 }
 
-.link-list a {
+.link-list a,
+.link-list span {
   display: block;
   text-decoration: none;
   border: 1px solid var(--line);
