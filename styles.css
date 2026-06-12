@@ -48,6 +48,12 @@ a {
   color: inherit;
 }
 
+.is-disabled-link {
+  opacity: 0.55;
+  cursor: default;
+  pointer-events: none;
+}
+
 .skip-link {
   position: absolute;
   left: -9999px;
