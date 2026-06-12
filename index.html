@@ -184,13 +184,20 @@
     document.getElementById("year").textContent = new Date().getFullYear();
 
     document.querySelectorAll('a:not([data-keep-active="true"])').forEach((link) => {
-      link.classList.add("is-disabled-link");
-      link.setAttribute("aria-disabled", "true");
-      link.setAttribute("role", "link");
-      link.setAttribute("tabindex", "-1");
-      link.removeAttribute("href");
-      link.removeAttribute("target");
-      link.removeAttribute("rel");
+      const disabledLink = document.createElement("span");
+
+      Array.from(link.attributes).forEach((attribute) => {
+        if (["href", "target", "rel"].includes(attribute.name)) {
+          return;
+        }
+
+        disabledLink.setAttribute(attribute.name, attribute.value);
+      });
+
+      disabledLink.classList.add("is-disabled-link");
+      disabledLink.setAttribute("aria-disabled", "true");
+      disabledLink.innerHTML = link.innerHTML;
+      link.replaceWith(disabledLink);
     });
   </script>
 </body>
