@@ -183,13 +183,11 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    document.querySelectorAll("a").forEach((link) => {
-      if (link.dataset.keepActive === "true") {
-        return;
-      }
-
+    document.querySelectorAll('a:not([data-keep-active="true"])').forEach((link) => {
       link.classList.add("is-disabled-link");
       link.setAttribute("aria-disabled", "true");
+      link.setAttribute("role", "link");
+      link.setAttribute("tabindex", "-1");
       link.removeAttribute("href");
       link.removeAttribute("target");
       link.removeAttribute("rel");
