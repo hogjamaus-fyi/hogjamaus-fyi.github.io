@@ -48,12 +48,6 @@ a {
   color: inherit;
 }
 
-.is-disabled-link {
-  opacity: 0.55;
-  cursor: default;
-  pointer-events: none;
-}
-
 .skip-link {
   position: absolute;
   left: -9999px;
@@ -152,8 +146,7 @@ h1 {
   gap: 0.55rem;
 }
 
-.site-nav a,
-.site-nav .is-disabled-link {
+.site-nav a {
   text-decoration: none;
   font-size: 0.9rem;
   border: 1px solid var(--line);
@@ -220,8 +213,7 @@ h2 {
   gap: 0.6rem;
 }
 
-.link-list a,
-.link-list .is-disabled-link {
+.link-list a {
   display: block;
   text-decoration: none;
   border: 1px solid var(--line);
