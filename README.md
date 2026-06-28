@@ -5,7 +5,7 @@ Personal site for Austin James Hogan — links, prophesy writing, and social pro
 ## Files
 
 - `index.html` — homepage (link hub)
-- `styles.css` — site styling
+- `assets/css/styles.css` — site styling
 - `404.html` — not found page
 - `assets/favicon.svg` — favicon
 - `assets/squirrel.png` — OG / social preview image
