@@ -92,10 +92,32 @@ h1 {
   line-height: 0.95;
 }
 
-.tagline {
-  margin: 0.8rem 0 0;
+.taglines {
+  margin-top: 0.8rem;
+  display: grid;
+  gap: 0.45rem;
   max-width: 52rem;
+}
+
+.tagline {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: baseline;
   font-size: 0.96rem;
+}
+
+.tagline-label {
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--olive);
+}
+
+.tagline-text {
+  flex: 1 1 20rem;
 }
 
 .site-nav {
