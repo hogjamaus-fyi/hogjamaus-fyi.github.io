@@ -260,15 +260,14 @@ h2 {
 
 .footer-image-wrap {
   margin-top: 1.5rem;
-  text-align: center;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
 }
 
 .footer-image {
   display: block;
   width: 100%;
-  max-width: 640px;
   height: auto;
-  margin: 0 auto;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   object-fit: cover;
