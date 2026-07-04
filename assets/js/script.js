@@ -8,9 +8,6 @@ try {
   }
 } catch (e) {}
 
-var yearElement = document.getElementById('year');
-if (yearElement) yearElement.textContent = new Date().getFullYear();
-
 function googleTranslateElementInit() {
   new google.translate.TranslateElement({
     pageLanguage: 'en',
@@ -18,7 +15,10 @@ function googleTranslateElementInit() {
   }, 'google_translate_element');
 }
 
-(function () {
+document.addEventListener('DOMContentLoaded', function () {
+  var yearElement = document.getElementById('year');
+  if (yearElement) yearElement.textContent = new Date().getFullYear();
+
   var select = document.getElementById('lang-select');
   try {
     var saved = localStorage.getItem('preferredLang') || 'en';
@@ -40,4 +40,4 @@ function googleTranslateElementInit() {
       location.reload();
     });
   }
-})();
+});
