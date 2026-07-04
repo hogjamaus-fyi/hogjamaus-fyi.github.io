@@ -32,6 +32,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Fraunces:opsz,wght@9..144,700&display=swap" rel="stylesheet" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="assets/css/styles.css" />
+  <script>
+    /* Apply saved language before Google Translate loads */
+    try {
+      var _lang = localStorage.getItem('preferredLang');
+      if (_lang && _lang !== 'en') {
+        var _v = '/en/' + _lang;
+        document.cookie = 'googtrans=' + _v + '; path=/';
+        document.cookie = 'googtrans=' + _v + '; path=/; domain=' + location.hostname;
+      }
+    } catch (e) {}
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -49,6 +60,7 @@
         <p class="tagline"><span class="tagline-label">Family</span><span class="tagline-text">#️⃣⁉️🗓️🛬🇮🇷🤱🏽👧🏽❓❓❓....🗿🤴🏾👸🏽🏡🌌🪽</span></p>
       </div>
       <nav class="site-nav" aria-label="Section navigation">
+        <a href="#character-assessment">Character Assessment</a>
         <a href="#tasks">Tasks</a>
         <a href="#how-to-prophesy">How To Prophesy</a>
         <a href="#bio-prophesy">Bio | Prophesy</a>
@@ -56,9 +68,34 @@
         <a href="#music-listens">Music Listens</a>
         <a href="#other">Other</a>
       </nav>
+      <div class="lang-selector">
+        <label for="lang-select" class="sr-only">Select language</label>
+        <select id="lang-select" aria-label="Select language">
+          <option value="en">🌐 English</option>
+          <option value="zh-CN">中文 (Chinese)</option>
+          <option value="hi">हिन्दी (Hindi)</option>
+          <option value="es">Español (Spanish)</option>
+          <option value="fr">Français (French)</option>
+          <option value="ar">العربية (Arabic)</option>
+          <option value="bn">বাংলা (Bengali)</option>
+          <option value="pt">Português (Portuguese)</option>
+          <option value="ru">Русский (Russian)</option>
+          <option value="ur">اردو (Urdu)</option>
+          <option value="fa">فارسی (Farsi)</option>
+        </select>
+      </div>
     </header>
 
     <main id="main">
+      <section id="character-assessment" class="panel">
+        <h2>Character Assessment</h2>
+        <h3>Sepideh A. Should Hate This A**hole!</h3>
+        <ul class="link-list">
+          <li><a href="https://photos.app.goo.gl/wHgfHGUEQ54jHcPj9" target="_blank" rel="noopener noreferrer">Sepideh A. Should Hate This A**hole!</a></li>
+          <li><a href="https://en.wikipedia.org/wiki/Eau_de_toilette" target="_blank" rel="noopener noreferrer">If Eau de Toilette was a man, and true to the namesake, describe that mean to me?</a></li>
+        </ul>
+      </section>
+
       <section id="tasks" class="panel">
         <h2>Tasks</h2>
         <ul class="link-list">
@@ -180,8 +217,44 @@
     </footer>
   </div>
 
+  <div id="google_translate_element" style="display:none" aria-hidden="true"></div>
+
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    /* Google Translate callback */
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+
+    /* Language selector */
+    (function () {
+      var select = document.getElementById('lang-select');
+      try {
+        var saved = localStorage.getItem('preferredLang') || 'en';
+        if (select) select.value = saved;
+      } catch (e) {}
+
+      if (select) {
+        select.addEventListener('change', function () {
+          var lang = this.value;
+          try { localStorage.setItem('preferredLang', lang); } catch (e) {}
+          if (lang === 'en') {
+            document.cookie = 'googtrans=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+            document.cookie = 'googtrans=; path=/; domain=' + location.hostname + '; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+          } else {
+            var v = '/en/' + lang;
+            document.cookie = 'googtrans=' + v + '; path=/';
+            document.cookie = 'googtrans=' + v + '; path=/; domain=' + location.hostname;
+          }
+          location.reload();
+        });
+      }
+    })();
   </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>
 </body>
 </html>
