@@ -1,15 +1,33 @@
 # hogjamaus-fyi.github.io
 
-Personal site for Austin James Hogan — links, prophesy writing, and social profiles.
+Static GitHub Pages site for Austin James Hogan.
 
-## Files
+The project is a public home page and reference hub for writing, profile links, documents, music profiles, social platforms, and related off-site resources.
 
-- `index.html` — homepage (link hub)
-- `assets/css/styles.css` — site styling
-- `assets/js/script.js` — homepage JavaScript behavior
+It also includes a secondary static mirror experience for `big-ai-genius-level-emotions-detection-recognition`.
+
+## What the site includes
+
+- A homepage for Austin James Hogan with curated sections for writing, character notes, music links, related projects, biography material, faith-oriented resources, and sharing links
+- A language selector and client-side share/copy interactions for the main page
+- A custom `404.html` page
+- Search engine support through `robots.txt`, `sitemap.xml`, and metadata embedded in the HTML
+- A static GitHub-style mirror under `big-ai-genius-level-emotions-detection-recognition/`
+
+## Project structure
+
+- `index.html` — main site entry point and section content
+- `assets/css/styles.css` — styling for the main site
+- `assets/js/script.js` — language preference and share interaction logic
 - `404.html` — not found page
 - `robots.txt` — crawler directives
-- `sitemap.xml` — URL discovery for search engines
-- `assets/favicon.svg` — favicon
-- `assets/squirrel.png` — OG / social preview image
-- `assets/Aw_Law.jpeg` — footer image
+- `sitemap.xml` — published URL index
+- `big-ai-genius-level-emotions-detection-recognition/` — static repository mirror pages and related assets
+- `archive/backup.index.html` — older homepage backup copy
+- `assets/favicon.svg`, `assets/squirrel.png`, `assets/Aw_Law.jpeg`, `AwLaw.jpg`, `sky.jpg` — site imagery and branding assets
+
+## Development
+
+This repository is a plain static site with no build step and no configured lint or test scripts.
+
+To preview locally, open `index.html` in a browser or serve the repository root with any simple static file server.
