@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hogjamaus-fyi.github.io/sitemap.xml
