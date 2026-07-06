@@ -2,13 +2,13 @@
 
 Static GitHub Pages site for Austin James Hogan.
 
-The project is a public home page and reference hub for prophesy writing, profile links, documents, music profiles, social platforms, and related off-site resources.
+The project is a public home page and reference hub for writing, profile links, documents, music profiles, social platforms, and related off-site resources.
 
 It also includes a secondary static mirror experience for `big-ai-genius-level-emotions-detection-recognition`.
 
 ## What the site includes
 
-- A homepage for Austin James Hogan with curated sections such as Bring Brain Battles, Character Assessment, Music Listens, Tasks, How To Prophesy, BIO | PROPHESY, God Needed, Other, and sharing links
+- A homepage for Austin James Hogan with curated sections for writing, character notes, music links, related projects, biography material, faith-oriented resources, and sharing links
 - A language selector and client-side share/copy interactions for the main page
 - A custom `404.html` page
 - Search engine support through `robots.txt`, `sitemap.xml`, and metadata embedded in the HTML
