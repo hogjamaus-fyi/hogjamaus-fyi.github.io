@@ -2,7 +2,9 @@
 
 Static GitHub Pages site for Austin James Hogan.
 
-The project is a public home page and reference hub that collects prophesy writing, profile links, documents, music profiles, social platforms, and related off-site resources. It also includes a secondary static mirror experience for `big-ai-genius-level-emotions-detection-recognition`.
+The project is a public home page and reference hub for prophesy writing, profile links, documents, music profiles, social platforms, and related off-site resources.
+
+It also includes a secondary static mirror experience for `big-ai-genius-level-emotions-detection-recognition`.
 
 ## What the site includes
 
