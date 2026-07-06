@@ -40,4 +40,55 @@ document.addEventListener('DOMContentLoaded', function () {
       location.reload();
     });
   }
+
+  var copyBtn = document.getElementById('share-copy-link');
+  var copyStatus = document.getElementById('share-copy-status');
+  if (copyBtn) {
+    copyBtn.addEventListener('click', function () {
+      var url = window.location.href;
+      var origText = copyBtn.textContent;
+      function onCopied() {
+        copyBtn.textContent = '✅ Copied!';
+        if (copyStatus) copyStatus.textContent = 'Link copied to clipboard.';
+        setTimeout(function () {
+          copyBtn.textContent = origText;
+          if (copyStatus) copyStatus.textContent = '';
+        }, 2000);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(onCopied).catch(function () {
+          fallbackCopy(url, onCopied);
+        });
+      } else {
+        fallbackCopy(url, onCopied);
+      }
+    });
+  }
+
+  function fallbackCopy(text, cb) {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.focus();
+    ta.select();
+    var success = false;
+    try { success = document.execCommand('copy'); } catch (e) {}
+    document.body.removeChild(ta);
+    if (success && cb) cb();
+  }
+
+  var nativeBtn = document.getElementById('share-native');
+  if (nativeBtn && navigator.share) {
+    nativeBtn.removeAttribute('hidden');
+    nativeBtn.addEventListener('click', function () {
+      navigator.share({
+        title: document.title,
+        url: window.location.href
+      }).catch(function (err) {
+        /* AbortError means user cancelled — no feedback needed for other errors */
+      });
+    });
+  }
 });
