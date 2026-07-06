@@ -22,7 +22,7 @@ The project is a public home page and reference hub that collects prophesy writi
 - `sitemap.xml` — published URL index
 - `big-ai-genius-level-emotions-detection-recognition/` — static repository mirror pages and related assets
 - `archive/backup.index.html` — older homepage backup copy
-- `assets/favicon.svg`, `assets/squirrel.png`, `AwLaw.jpg`, `sky.jpg` — site imagery and branding assets
+- `assets/favicon.svg`, `assets/squirrel.png`, `assets/Aw_Law.jpeg`, `AwLaw.jpg`, `sky.jpg` — site imagery and branding assets
 
 ## Development
 
