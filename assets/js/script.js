@@ -73,9 +73,10 @@ document.addEventListener('DOMContentLoaded', function () {
     document.body.appendChild(ta);
     ta.focus();
     ta.select();
-    try { document.execCommand('copy'); } catch (e) {}
+    var success = false;
+    try { success = document.execCommand('copy'); } catch (e) {}
     document.body.removeChild(ta);
-    if (cb) cb();
+    if (success && cb) cb();
   }
 
   var nativeBtn = document.getElementById('share-native');
@@ -85,7 +86,9 @@ document.addEventListener('DOMContentLoaded', function () {
       navigator.share({
         title: document.title,
         url: window.location.href
-      }).catch(function () {});
+      }).catch(function (err) {
+        /* AbortError means user cancelled — no feedback needed for other errors */
+      });
     });
   }
 });
