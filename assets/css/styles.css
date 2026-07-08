@@ -258,21 +258,6 @@ h2 {
   opacity: 0.84;
 }
 
-.footer-image-wrap {
-  margin-top: 1.5rem;
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
-}
-
-.footer-image {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  object-fit: cover;
-}
-
 .icon-panel {
   margin-top: 0.25rem;
 }
