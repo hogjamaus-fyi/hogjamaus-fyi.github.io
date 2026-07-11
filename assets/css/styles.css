@@ -1,4 +1,5 @@
 :root {
+  color-scheme: light dark;
   --ink: #11161c;
   --paper: #f9f6ef;
   --sand: #efe7d3;
@@ -6,9 +7,52 @@
   --gold: #b88e2d;
   --olive: #5c6837;
   --line: rgba(17, 22, 28, 0.18);
+  --line-strong: rgba(17, 22, 28, 0.4);
   --shadow: 0 16px 44px rgba(17, 22, 28, 0.12);
+  --surface-soft: rgba(255, 255, 255, 0.4);
+  --surface-panel: rgba(255, 255, 255, 0.64);
+  --surface-elevated-start: rgba(255, 255, 255, 0.85);
+  --surface-elevated-end: rgba(255, 255, 255, 0.5);
+  --surface-elevated-hover-start: rgba(255, 255, 255, 0.98);
+  --surface-elevated-hover-end: rgba(255, 255, 255, 0.7);
+  --button-primary-hover: #2a3540;
+  --icon-surface-end: rgba(239, 231, 211, 0.5);
+  --icon-surface-hover-end: rgba(239, 231, 211, 0.72);
+  --backdrop-gold: rgba(184, 142, 45, 0.22);
+  --backdrop-olive: rgba(92, 104, 55, 0.16);
+  --backdrop-rust: rgba(183, 78, 42, 0.12);
+  --backdrop-stripe: rgba(17, 22, 28, 0.025);
+  --select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2311161c' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
   --max: 920px;
   --radius: 18px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #f4efe3;
+    --paper: #11161c;
+    --sand: #1a232c;
+    --rust: #f08962;
+    --gold: #dfbb67;
+    --olive: #b1c78d;
+    --line: rgba(244, 239, 227, 0.16);
+    --line-strong: rgba(244, 239, 227, 0.38);
+    --shadow: 0 16px 44px rgba(0, 0, 0, 0.34);
+    --surface-soft: rgba(17, 22, 28, 0.56);
+    --surface-panel: rgba(17, 22, 28, 0.76);
+    --surface-elevated-start: rgba(39, 49, 61, 0.92);
+    --surface-elevated-end: rgba(22, 29, 37, 0.82);
+    --surface-elevated-hover-start: rgba(50, 62, 77, 0.98);
+    --surface-elevated-hover-end: rgba(29, 39, 50, 0.9);
+    --button-primary-hover: #d8ccba;
+    --icon-surface-end: rgba(92, 104, 55, 0.18);
+    --icon-surface-hover-end: rgba(92, 104, 55, 0.28);
+    --backdrop-gold: rgba(223, 187, 103, 0.12);
+    --backdrop-olive: rgba(177, 199, 141, 0.1);
+    --backdrop-rust: rgba(240, 137, 98, 0.1);
+    --backdrop-stripe: rgba(244, 239, 227, 0.035);
+    --select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23f4efe3' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  }
 }
 
 * {
@@ -32,15 +76,15 @@ body {
   inset: 0;
   pointer-events: none;
   background:
-    radial-gradient(circle at 10% 15%, rgba(184, 142, 45, 0.22), transparent 24rem),
-    radial-gradient(circle at 90% 10%, rgba(92, 104, 55, 0.16), transparent 26rem),
-    radial-gradient(circle at 50% 95%, rgba(183, 78, 42, 0.12), transparent 28rem),
+    radial-gradient(circle at 10% 15%, var(--backdrop-gold), transparent 24rem),
+    radial-gradient(circle at 90% 10%, var(--backdrop-olive), transparent 26rem),
+    radial-gradient(circle at 50% 95%, var(--backdrop-rust), transparent 28rem),
     repeating-linear-gradient(
       -25deg,
       transparent,
       transparent 12px,
-      rgba(17, 22, 28, 0.025) 12px,
-      rgba(17, 22, 28, 0.025) 13px
+      var(--backdrop-stripe) 12px,
+      var(--backdrop-stripe) 13px
     );
 }
 
@@ -134,7 +178,7 @@ h1 {
   border: 1px solid var(--line);
   border-radius: 999px;
   padding: 0.45rem 0.8rem;
-  background: rgba(255, 255, 255, 0.4);
+  background: var(--surface-soft);
 }
 
 .site-nav a:hover {
@@ -146,7 +190,7 @@ h1 {
   border-radius: var(--radius);
   padding: 1.2rem;
   margin-bottom: 1rem;
-  background: rgba(255, 255, 255, 0.64);
+  background: var(--surface-panel);
   box-shadow: var(--shadow);
   animation: reveal 440ms ease both;
 }
@@ -202,15 +246,15 @@ h2 {
   border: 1px solid var(--line);
   border-radius: 12px;
   padding: 0.72rem 0.85rem;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.5));
+  background: linear-gradient(90deg, var(--surface-elevated-start), var(--surface-elevated-end));
   font-weight: 500;
   transition: transform 120ms ease, border-color 120ms ease, background 120ms ease;
 }
 
 .link-list a:hover {
   transform: translateY(-1px);
-  border-color: rgba(17, 22, 28, 0.4);
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.7));
+  border-color: var(--line-strong);
+  background: linear-gradient(90deg, var(--surface-elevated-hover-start), var(--surface-elevated-hover-end));
 }
 
 .hero-copy {
@@ -233,13 +277,13 @@ h2 {
   padding: 0.5rem 1.1rem;
   font-size: 0.9rem;
   font-weight: 500;
-  background: rgba(255, 255, 255, 0.5);
+  background: var(--surface-elevated-end);
   transition: border-color 120ms ease, background 120ms ease;
 }
 
 .button:hover {
   border-color: var(--ink);
-  background: rgba(255, 255, 255, 0.85);
+  background: var(--surface-elevated-start);
 }
 
 .button.primary {
@@ -249,7 +293,7 @@ h2 {
 }
 
 .button.primary:hover {
-  background: #2a3540;
+  background: var(--button-primary-hover);
 }
 
 .site-footer {
@@ -294,15 +338,15 @@ h2 {
   border: 1px solid var(--line);
   border-radius: 12px;
   text-decoration: none;
-  background: linear-gradient(120deg, rgba(255, 255, 255, 0.88), rgba(239, 231, 211, 0.5));
+  background: linear-gradient(120deg, var(--surface-elevated-start), var(--icon-surface-end));
   transition: transform 120ms ease, border-color 120ms ease, background 120ms ease;
 }
 
 .icon-link:hover,
 .icon-link:focus-visible {
   transform: translateY(-1px);
-  border-color: rgba(17, 22, 28, 0.42);
-  background: linear-gradient(120deg, rgba(255, 255, 255, 0.98), rgba(239, 231, 211, 0.72));
+  border-color: var(--line-strong);
+  background: linear-gradient(120deg, var(--surface-elevated-hover-start), var(--icon-surface-hover-end));
 }
 
 .icon-link img,
@@ -354,8 +398,8 @@ body {
   border: 1px solid var(--line);
   border-radius: 999px;
   padding: 0.45rem 2rem 0.45rem 0.8rem;
-  background-color: rgba(255, 255, 255, 0.4);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2311161c' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-color: var(--surface-soft);
+  background-image: var(--select-arrow);
   background-repeat: no-repeat;
   background-position: right 0.75rem center;
   color: var(--ink);
@@ -406,7 +450,7 @@ body {
   border: 1px solid var(--line);
   border-radius: 12px;
   padding: 0.6rem 0.75rem;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.5));
+  background: linear-gradient(90deg, var(--surface-elevated-start), var(--surface-elevated-end));
   font-weight: 500;
   font-size: 0.9rem;
   transition: transform 120ms ease, border-color 120ms ease, background 120ms ease;
@@ -414,8 +458,8 @@ body {
 
 .share-item:hover {
   transform: translateY(-1px);
-  border-color: rgba(17, 22, 28, 0.4);
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.7));
+  border-color: var(--line-strong);
+  background: linear-gradient(90deg, var(--surface-elevated-hover-start), var(--surface-elevated-hover-end));
 }
 
 .share-item:focus-visible {
@@ -439,14 +483,14 @@ body {
   border: 1px solid var(--line);
   border-radius: 999px;
   padding: 0.5rem 1.1rem;
-  background: rgba(255, 255, 255, 0.5);
+  background: var(--surface-elevated-end);
   transition: border-color 120ms ease, background 120ms ease;
 }
 
 .share-copy-btn:hover,
 .share-native-btn:hover {
   border-color: var(--ink);
-  background: rgba(255, 255, 255, 0.85);
+  background: var(--surface-elevated-start);
 }
 
 .share-copy-btn:focus-visible,
