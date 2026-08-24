@@ -15,6 +15,7 @@ jobs:
       - name: Checkout Source Repository
         uses: actions/checkout@v4
         with:
+          ref: main
           fetch-depth: 0
           # Use secrets.MIRROR_PAT if across different accounts/orgs,
           # or secrets.GIT_HUB_TOKEN if inside the same org/user scope.
@@ -54,4 +55,4 @@ jobs:
 
           git add CNAME
           git commit -m "Update CNAME for mirror" || echo "No CNAME changes to commit"
-          git push --force mirror HEAD:${{ github.ref }}s
+          git push --force mirror HEAD:${{ github.ref }}
