@@ -17,13 +17,13 @@ jobs:
         with:
           fetch-depth: 0
           # Use secrets.MIRROR_PAT if across different accounts/orgs,
-          # or secrets.GITHUB_TOKEN if inside the same org/user scope.
-          token: ${{ secrets.MIRROR_PAT || secrets.GITHUB_TOKEN }}
+          # or secrets.GIT_HUB_TOKEN if inside the same org/user scope.
+          token: ${{ secrets.MIRROR_PAT || secrets.GIT_HUB_TOKEN }}
 
       - name: Configure Git Credentials
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions [bot]"
+          git config --global user.email "268903590+hogjamaus-fyi@users.noreply.github.com"
 
       - name: Set Remote HTTPS URL
         run: |
