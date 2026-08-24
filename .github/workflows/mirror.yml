@@ -1,18 +1,58 @@
-# Mirror Job
-name: Mirroring
+name: Mirror to Secondary Repo
 
-on: [push, delete]
+on:
+  push:
+    branches-ignore: []
+    tags-ignore: []
+  delete:
 
 jobs:
-  to_gitlab:
+  mirror-and-update-cname:
     runs-on: ubuntu-latest
-    steps:                                              # <-- must use actions/checkout before mirroring!
-      - uses: actions/checkout@v3
+    steps:
+      - name: Checkout Source Repository
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: pixta-dev/repository-mirroring-action@v1
+
+      - name: Set up SSH Key
+        uses: webfactory/ssh-agent@v0.9.0
         with:
-          target_repo_url:
-            git@github.com:hogjamaus-fyi/hogjamaus-fyi.github.io.mirror.git
-          ssh_private_key:                              # <-- use 'secrets' to pass credential information.
-            ${{ secrets.GITEM_SSH_PRIVATE_KEY }}
+          ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Configure Git Credentials
+        run: |
+          git config --global user.name "Github Action [mirror script]"
+          git config --global user.email "268903590+hogjamaus-fyi@users.noreply.github.com"
+
+      - name: Add Mirror Remote
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          git remote add mirror git@github.com:hogjamaus-fyi/hogjamaus-fyi.github.io.mirror.git
+
+      - name: Process Deletion Event
+        if: github.event_name == 'delete'
+        run: |
+          REF_NAME="${{ github.event.ref }}"
+          REF_TYPE="${{ github.event.ref_type }}"
+
+          if [ "$REF_TYPE" = "branch" ]; then
+            git push mirror --delete "$REF_NAME" || true
+          elif [ "$REF_TYPE" = "tag" ]; then
+            git push mirror --delete refs/tags/"$REF_NAME" || true
+          fi
+
+      - name: Process CNAME Files and Push (On Push Event)
+        if: github.event_name == 'push'
+        run: |
+          if [ -f "CNAME.mirror.one" ]; then
+            mv CNAME.mirror.one CNAME
+          else
+            echo "hogjamaus.fyi" > CNAME
+            echo "www.hogjamaus.fyi" >> CNAME
+          fi
+
+          git add CNAME
+          git commit -m "Update CNAME for mirror" || echo "No CNAME changes to commit"
+          git push --force mirror HEAD:${{ github.ref }}
