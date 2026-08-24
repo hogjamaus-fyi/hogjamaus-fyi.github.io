@@ -28,7 +28,7 @@ jobs:
       - name: Set Remote HTTPS URL
         run: |
           # Uses internal HTTPS auth using the PAT or GITHUB_TOKEN configured above
-          git remote add mirror https://x-access-token:${{ secrets.MIRROR_PAT || secrets.GITHUB_TOKEN }}@github.com/hogjamaus-fyi/hogjamaus-fyi.github.io.mirror.git
+          git remote add mirror https://x-access-token:${{ secrets.MIRROR_PAT || secrets.GIT_HUB_TOKEN }}@github.com/hogjamaus-fyi/hogjamaus-fyi.github.io.mirror.git
 
       - name: Process Deletion Event
         if: github.event_name == 'delete'
@@ -48,8 +48,8 @@ jobs:
           if [ -f "CNAME.mirror.one" ]; then
             mv CNAME.mirror.one CNAME
           else
-            echo "hogjamaus.fyi" > CNAME
-            echo "www.hogjamaus.fyi" >> CNAME
+            echo "@ hogjamaus.fyi" > CNAME
+            echo "www hogjamaus.fyi" >> CNAME
           fi
 
           git add CNAME
