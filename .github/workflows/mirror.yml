@@ -49,8 +49,8 @@ jobs:
           if [ -f "CNAME.mirror.one" ]; then
             mv CNAME.mirror.one CNAME
           else
-            echo "@ hogjamaus.fyi" > CNAME
-            echo "www hogjamaus.fyi" >> CNAME
+            echo "hogjamaus.fyi" > CNAME
+            echo "hogjamaus.fyi" >> CNAME
           fi
 
           git add CNAME
